@@ -11,14 +11,15 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "Migrant is migration framework."
   s.description  = <<-DESC
+Migrant is simple migration framework.
                    DESC
-  s.homepage     = "http://github.com/tomoponzoo/Migrant"
+  s.homepage     = "https://github.com/tomoponzoo/Migrant"
   s.license      = "MIT"
   s.author       = { "tomoponzoo" => "tomoponzoo@gmail.com" }
 
   s.ios.deployment_target = "8.0"
 
-  s.source       = { :git => "http://github.com/tomoponzoo/Migrant.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/tomoponzoo/Migrant.git", :tag => "v#{s.version}" }
   s.source_files = "Migrant/*.swift", "Migrant/**/*.swift"
   s.requires_arc = true
 end
