@@ -40,6 +40,9 @@ public class Migrant {
 	
 	private var tasks = [MigrateTask]()
 	
+    public init() {
+    }
+    
 	public func set(task: MigrateTask) {
 		tasks.append(task)
 	}
