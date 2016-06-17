@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C3454A51D139E8A0000C7AF /* BoolMigratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3454A41D139E8A0000C7AF /* BoolMigratable.swift */; };
+		0C3454A81D13AEBB0000C7AF /* UserDefaultsMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3454A71D13AEBB0000C7AF /* UserDefaultsMigrator.swift */; };
 		0C64637D1D13844B0095D0FF /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C64637C1D13844B0095D0FF /* Configuration.swift */; };
 		55B30BCA1D12FB240076709A /* Migrant.h in Headers */ = {isa = PBXBuildFile; fileRef = 55B30BC91D12FB240076709A /* Migrant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55B30BD21D12FC330076709A /* Migrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B30BD11D12FC330076709A /* Migrant.swift */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		0C3454A41D139E8A0000C7AF /* BoolMigratable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolMigratable.swift; sourceTree = "<group>"; };
+		0C3454A71D13AEBB0000C7AF /* UserDefaultsMigrator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsMigrator.swift; sourceTree = "<group>"; };
 		0C64637C1D13844B0095D0FF /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		55B30BC61D12FB240076709A /* Migrant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Migrant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B30BC91D12FB240076709A /* Migrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Migrant.h; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C3454A61D13AEA50000C7AF /* Migrator */ = {
+			isa = PBXGroup;
+			children = (
+				0C3454A71D13AEBB0000C7AF /* UserDefaultsMigrator.swift */,
+			);
+			path = Migrator;
+			sourceTree = "<group>";
+		};
 		55B30BBC1D12FB240076709A = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				55B30BDC1D1314380076709A /* Migratable */,
+				0C3454A61D13AEA50000C7AF /* Migrator */,
 				55B30BC91D12FB240076709A /* Migrant.h */,
 				55B30BD11D12FC330076709A /* Migrant.swift */,
 				0C64637C1D13844B0095D0FF /* Configuration.swift */,
@@ -152,6 +163,7 @@
 			files = (
 				0C64637D1D13844B0095D0FF /* Configuration.swift in Sources */,
 				55B30BDE1D1314450076709A /* VersionMigratable.swift in Sources */,
+				0C3454A81D13AEBB0000C7AF /* UserDefaultsMigrator.swift in Sources */,
 				55B30BD21D12FC330076709A /* Migrant.swift in Sources */,
 				0C3454A51D139E8A0000C7AF /* BoolMigratable.swift in Sources */,
 			);
