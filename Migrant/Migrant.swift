@@ -18,7 +18,10 @@ public protocol Migrator {
 	var migrator: MigrateBlock { get }
 }
 
-public class MigrateTask: Migrator, Migratable {
+public protocol MigrateTask: Migratable, Migrator {
+}
+
+public class MigrateBlockTask: MigrateTask {
 	private let _migratable: Migratable
 	private let _migrator: MigrateBlock
 	
@@ -43,12 +46,12 @@ public class Migrant {
     public init() {
     }
     
-	public func set(task: MigrateTask) {
+    public func set(task: MigrateTask) {
 		tasks.append(task)
 	}
 	
 	public func set(migratable: Migratable, migrator: MigrateBlock) {
-		tasks.append(MigrateTask(migratable: migratable, migrator: migrator))
+		tasks.append(MigrateBlockTask(migratable: migratable, migrator: migrator))
 	}
 	
 	public func migrate() {
