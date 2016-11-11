@@ -10,6 +10,9 @@ import Foundation
 
 public class VersionMigratable: Migratable {
 	
+    public init() {
+    }
+    
 	public var migratable: Bool {
         let oldVersion = Conf.sharedConfiguration.version
         let curVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString")
