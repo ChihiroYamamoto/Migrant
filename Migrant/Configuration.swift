@@ -17,14 +17,14 @@ class Configuration {
     
     static let sharedConfiguration = Configuration()
     
-    let ud = NSUserDefaults.standardUserDefaults()
+    let ud = UserDefaults.standard
     
     var version: String? {
-        get { return ud.stringForKey(Keys.version.rawValue) }
-        set { sync { self.ud.setObject(newValue, forKey: Keys.version.rawValue) } }
+        get { return ud.string(forKey: Keys.version.rawValue) }
+        set { sync { self.ud.set(newValue, forKey: Keys.version.rawValue) } }
     }
     
-    func sync(block: () -> Void) {
+    func sync(_ block: () -> Void) {
         block()
         ud.synchronize()
     }

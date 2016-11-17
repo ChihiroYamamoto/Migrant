@@ -15,9 +15,9 @@ public class VersionMigratable: Migratable {
     
 	public var migratable: Bool {
         let oldVersion = Conf.sharedConfiguration.version
-        let curVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString")
+        let curVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
         
-        if let oldVersion = oldVersion, curVersion = curVersion as? String {
+        if let oldVersion = oldVersion, let curVersion = curVersion as? String {
             return oldVersion < curVersion
         } else {
             return true

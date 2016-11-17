@@ -21,19 +21,19 @@ public protocol Migrator {
 public protocol MigrateTask: Migratable, Migrator {
 }
 
-public class MigrateBlockTask: MigrateTask {
+open class MigrateBlockTask: MigrateTask {
 	private let _migratable: Migratable
 	private let _migrator: MigrateBlock
 	
-	public var migratable: Bool {
+	open var migratable: Bool {
 		return _migratable.migratable
 	}
 	
-	public var migrator: MigrateBlock {
+	open var migrator: MigrateBlock {
 		return _migrator
 	}
 	
-	public init(migratable: Migratable, migrator: MigrateBlock) {
+	public init(migratable: Migratable, migrator: @escaping MigrateBlock) {
 		_migratable = migratable
 		_migrator = migrator
 	}
@@ -46,11 +46,11 @@ public class Migrant {
     public init() {
     }
     
-    public func set(task: MigrateTask) {
+    public func set(_ task: MigrateTask) {
 		tasks.append(task)
 	}
 	
-	public func set(migratable: Migratable, migrator: MigrateBlock) {
+	public func set(_ migratable: Migratable, migrator: @escaping MigrateBlock) {
 		tasks.append(MigrateBlockTask(migratable: migratable, migrator: migrator))
 	}
 	
@@ -66,10 +66,10 @@ public class Migrant {
         }
 	}
     
-    private func migrate(block: () -> Void) {
+    private func migrate(_ block: () -> Void) {
         block()
         
-        if let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String {
+        if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             Conf.sharedConfiguration.version = version
         }
     }
