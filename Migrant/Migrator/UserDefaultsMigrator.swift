@@ -9,44 +9,44 @@
 import Foundation
 
 public protocol UserDefaultsMigrator {
-    var userDefaults: NSUserDefaults { get }
+    var userDefaults: UserDefaults { get }
 }
 
 public extension UserDefaultsMigrator {
     
-    public func migrateForObject(fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
-        if let object = userDefaults.objectForKey(fromKey.key) {
-            userDefaults.setObject(object, forKey: toKey.key)
+    public func migrateForObject(_ fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
+        if let object = userDefaults.object(forKey: fromKey.key) {
+            userDefaults.set(object, forKey: toKey.key)
         }
         obsolete(fromKey)
     }
     
-    public func migrateForInt(fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
-        userDefaults.setInteger(userDefaults.integerForKey(fromKey.key), forKey: toKey.key)
+    public func migrateForInt(_ fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
+        userDefaults.set(userDefaults.integer(forKey: fromKey.key), forKey: toKey.key)
         obsolete(fromKey)
     }
     
-    public func migrateForBool(fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
-        userDefaults.setBool(userDefaults.boolForKey(fromKey.key), forKey: toKey.key)
+    public func migrateForBool(_ fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
+        userDefaults.set(userDefaults.bool(forKey: fromKey.key), forKey: toKey.key)
         obsolete(fromKey)
     }
     
-    public func migrateForDouble(fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
-        userDefaults.setDouble(userDefaults.doubleForKey(fromKey.key), forKey: toKey.key)
+    public func migrateForDouble(_ fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
+        userDefaults.set(userDefaults.double(forKey: fromKey.key), forKey: toKey.key)
         obsolete(fromKey)
     }
     
-    public func migrateForFloat(fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
-        userDefaults.setFloat(userDefaults.floatForKey(fromKey.key), forKey: toKey.key)
+    public func migrateForFloat(_ fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
+        userDefaults.set(userDefaults.float(forKey: fromKey.key), forKey: toKey.key)
         obsolete(fromKey)
     }
     
-    public func migrateForURL(fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
+    public func migrateForURL(_ fromKey: UserDefaultsKey, toKey: UserDefaultsKey) {
         migrateForObject(fromKey, toKey: toKey)
     }
     
-    public func obsolete(key: UserDefaultsKey) {
-        userDefaults.removeObjectForKey(key.key)
+    public func obsolete(_ key: UserDefaultsKey) {
+        userDefaults.removeObject(forKey: key.key)
     }
 }
 
