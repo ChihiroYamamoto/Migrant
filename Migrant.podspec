@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "Migrant"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "Migrant is migration framework."
   s.description  = <<-DESC
 Migrant is simple migration framework.
